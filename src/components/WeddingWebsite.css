@@ -17,12 +17,22 @@ body {
   padding: 2rem;
 }
 
+
+
+
 .fancy-title {
-  font-family: 'Great Vibes', cursive;
-  font-size: 4rem;
-  color: #e91e63;
-  margin-bottom: 0.5rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  color: #b30059;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
+
+
+
+
 
 .date-text {
   font-size: 1.2rem;
