@@ -5,13 +5,14 @@ import { motion } from 'framer-motion';
 import './WeddingWebsite.css';
 
 const WeddingWebsite = () => {
-  const weddingDate = new Date('2025-05-03T10:00:00');
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [volume, setVolume] = useState(0.1);
 
   useEffect(() => {
+    const weddingDate = new Date('2025-05-03T10:00:00');
+
     const timer = setInterval(() => {
       const now = new Date();
       const difference = weddingDate - now;
@@ -24,22 +25,35 @@ const WeddingWebsite = () => {
         });
       }
     }, 1000);
+
     return () => clearInterval(timer);
-  }, [weddingDate]);
+  }, []);
+
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.volume = volume;
+    }
+  }, [volume]);
 
   const toggleAudio = () => {
-    if (isPlaying) {
-      audioRef.current.pause();
-    } else {
-      audioRef.current.play().catch(() => alert('Click interaction is required to start the music!'));
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause();
+      } else {
+        audioRef.current
+          .play()
+          .catch(() => alert('Click interaction is required to start the music!'));
+      }
+      setIsPlaying(!isPlaying);
     }
-    setIsPlaying(!isPlaying);
   };
 
   const adjustVolume = (change) => {
-    let newVolume = Math.max(0, Math.min(1, audioRef.current.volume + change));
-    audioRef.current.volume = newVolume;
-    setVolume(newVolume);
+    if (audioRef.current) {
+      let newVolume = Math.max(0, Math.min(1, audioRef.current.volume + change));
+      audioRef.current.volume = newVolume;
+      setVolume(newVolume);
+    }
   };
 
   return (
@@ -73,14 +87,13 @@ const WeddingWebsite = () => {
           <p>📍 <strong>Venue:</strong> St. Theresa Catholic Church, Umueze Isuofia</p>
           <p>🎉 <strong>Reception:</strong> After Mass at Mr. Peter Inegbu's Compound</p>
           <p>🎨 <strong>Colors:</strong> 
-  <span style={{ backgroundColor: 'black', color: 'white', padding: '4px 10px', borderRadius: '20px', margin: '0 5px', display: 'inline-block' }}>Black</span>
-  <span style={{ backgroundColor: 'white', color: 'black', padding: '4px 10px', borderRadius: '20px', margin: '0 5px', border: '1px solid #ccc', display: 'inline-block' }}>White</span>
-  <span style={{ backgroundColor: '#722f37', color: 'white', padding: '4px 10px', borderRadius: '20px', margin: '0 5px', display: 'inline-block' }}>Wine</span>
-  <span style={{ backgroundColor: 'red', color: 'white', padding: '4px 10px', borderRadius: '20px', margin: '0 5px', display: 'inline-block' }}>Red</span>
-  <span style={{ backgroundColor: 'goldenrod', color: 'white', padding: '4px 10px', borderRadius: '20px', margin: '0 5px', display: 'inline-block' }}>Gold</span>
-  <span style={{ backgroundColor: 'purple', color: 'white', padding: '4px 10px', borderRadius: '20px', margin: '0 5px', display: 'inline-block' }}>Onion</span>
-</p>
-
+            <span style={{ backgroundColor: 'black', color: 'white', padding: '4px 10px', borderRadius: '20px', margin: '0 5px', display: 'inline-block' }}>Black</span>
+            <span style={{ backgroundColor: 'white', color: 'black', padding: '4px 10px', borderRadius: '20px', margin: '0 5px', border: '1px solid #ccc', display: 'inline-block' }}>White</span>
+            <span style={{ backgroundColor: '#722f37', color: 'white', padding: '4px 10px', borderRadius: '20px', margin: '0 5px', display: 'inline-block' }}>Wine</span>
+            <span style={{ backgroundColor: 'red', color: 'white', padding: '4px 10px', borderRadius: '20px', margin: '0 5px', display: 'inline-block' }}>Red</span>
+            <span style={{ backgroundColor: 'goldenrod', color: 'white', padding: '4px 10px', borderRadius: '20px', margin: '0 5px', display: 'inline-block' }}>Gold</span>
+            <span style={{ backgroundColor: 'purple', color: 'white', padding: '4px 10px', borderRadius: '20px', margin: '0 5px', display: 'inline-block' }}>Onion</span>
+          </p>
         </div>
       </section>
 
