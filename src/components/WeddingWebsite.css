@@ -18,8 +18,6 @@ body {
 }
 
 
-
-
 .fancy-title {
   font-family: 'Playfair Display', serif;
   font-size: 3rem;
@@ -30,9 +28,72 @@ body {
   text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
 
+.contact-section {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.contact-section h2 {
+  font-family: 'Playfair Display', serif;
+  color: #d44d90;
+  margin-bottom: 1rem;
+}
 
 
+.contact-card {
+  background-color: rgba(255, 255, 255, 0.9);
+  display: inline-block;
+  padding: 1rem 2rem;
+  margin: 0.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  width: 250px;
+  max-width: 90%;
+}
+.contact-section h2 {
+  font-family: 'Playfair Display', serif;
+  color: #d44d90;
+  margin-bottom: 1.5rem;
+  font-size: 2.2rem;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+}
 
+/* Add an underline effect */
+.contact-section h2::after {
+  content: '';
+  width: 60%;
+  height: 3px;
+  background: #d44d90;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50px;
+}
+
+.contact-card:hover {
+  transform: scale(1.05);
+}
+
+.contact-card p {
+  margin: 0.2rem 0;
+}
+
+.contact-card .name {
+  font-weight: bold;
+  font-family: 'Playfair Display', serif;
+  color: #722f37;
+  font-size: 1.2rem;
+}
+
+.contact-card .number {
+  color: #333;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+}
 
 .date-text {
   font-size: 1.2rem;
@@ -176,10 +237,36 @@ body {
 
 
 
+.carousel img {
+  width: 100%;
+  height: 100vh; /* Adjust height if too tall */
+  object-fit: cover;
+  object-position: center;
+}
 .footer-text {
-  margin-top: 3rem;
+  margin-top: 1.5rem;
   font-size: 1rem;
-  color: #444;
+  color: rgba(68, 68, 68, 0.7); /* Slightly bolder gray for better visibility */
+  letter-spacing: 1px;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  position: relative;
+  padding: 1rem 0;
+  background: rgba(255, 255, 255, 0.6);
+  border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+/* Add a soft glowing heart animation */
+.footer-text span.heart {
+  color: #d44d90;
+  animation: pulse 1.5s infinite;
+}
+
+/* Subtle pulse effect */
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.7; }
 }
 
 
@@ -194,7 +281,9 @@ body {
   .color-span {
     margin: 0; /* Remove inline margin, flex gap handles spacing */
   }
-
+  .carousel img {
+    height: 60vh; /* Reduce height on mobile */
+  }
 
   .counter-box {
     padding: 0.5rem;
@@ -208,4 +297,27 @@ body {
   .counter-box span {
     font-size: 0.8rem;
   }
+
+
+  .contact-section h2 {
+    font-size: 1.5rem;
+  }
+  .contact-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .contact-card {
+    padding: 0.8rem 1rem;
+    width: 70%;
+  }
+
+
+  .contact-card .name {
+    font-size: 1.1rem;
+  }
+
+  .contact-card .number {
+    font-size: 0.95rem;
+  }
+
 }
