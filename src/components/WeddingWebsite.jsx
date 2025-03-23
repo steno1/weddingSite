@@ -117,14 +117,17 @@ const WeddingWebsite = () => {
           <p>⏰ <strong>Time:</strong> Holy Mass – 10:00 AM</p>
           <p>📍 <strong>Venue:</strong> St. Theresa Catholic Church, Umueze Isuofia</p>
           <p>🎉 <strong>Reception:</strong> After Mass at Mr. Peter Inegbu's Compound</p>
-          <p className="color-options">
-  <span className="color-span" style={{ backgroundColor: 'black', color: 'white' }}>Black</span>
-  <span className="color-span" style={{ backgroundColor: 'white', color: 'black', border: '1px solid #ccc' }}>White</span>
-  <span className="color-span" style={{ backgroundColor: '#722f37', color: 'white' }}>Wine</span>
-  <span className="color-span" style={{ backgroundColor: 'red', color: 'white' }}>Red</span>
-  <span className="color-span" style={{ backgroundColor: 'goldenrod', color: 'white' }}>Gold</span>
-  <span className="color-span" style={{ backgroundColor: 'purple', color: 'white' }}>Onion</span>
-</p>
+          <div className="color-of-day-section">
+  <h3>🎨 Color of the Day:</h3>
+  <p className="color-options">
+    <span className="color-span" style={{ backgroundColor: 'black', color: 'white' }}>Black</span>
+    <span className="color-span" style={{ backgroundColor: 'white', color: 'black', border: '1px solid #ccc' }}>White</span>
+    <span className="color-span" style={{ backgroundColor: '#722f37', color: 'white' }}>Wine</span>
+    <span className="color-span" style={{ backgroundColor: 'red', color: 'white' }}>Red</span>
+    <span className="color-span" style={{ backgroundColor: 'goldenrod', color: 'white' }}>Gold</span>
+    <span className="color-span" style={{ backgroundColor: 'purple', color: 'white' }}>Onion</span>
+  </p>
+</div>
 
 
         </div>
