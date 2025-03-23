@@ -1,34 +1,152 @@
-/* WeddingWebsite.css */
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@400;600&display=swap');
 
-/* Fancy font for Ada-Too */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+  background: linear-gradient(to right, #ffecd2, #fcb69f);
+  color: #333;
+}
+
+.wedding-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+}
+
 .fancy-title {
   font-family: 'Great Vibes', cursive;
-  font-size: 3rem;
+  font-size: 4rem;
   color: #e91e63;
+  margin-bottom: 0.5rem;
 }
 
-/* Countdown Counter Styling */
-.countdown-grid div {
-  width: 4rem;
-  height: 4rem;
-  font-size: 1.25rem;
+.date-text {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 2rem;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
+.carousel .slide img {
+  border-radius: 10px;
+  max-height: 500px;
+  object-fit: cover;
+}
 
-  .countdown-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
+.wedding-invitation {
+  max-width: 700px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #fff8f8;
+  border: 2px solid #e0e0e0;
+  border-radius: 20px;
+  text-align: center;
+  font-family: 'Georgia', serif;
+  color: #4b2e2e;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
 
-  .carousel img {
-    height: 250px;
-    object-fit: cover;
-  }
+.wedding-invitation h1 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  color: #b30059;
+}
 
-  .venue-info p {
-    font-size: 0.875rem;
-  }
+.wedding-invitation h2 {
+  margin: 10px 0;
+  font-size: 1.4rem;
+  color: #800000;
+}
+
+.invite-text {
+  margin-top: 20px;
+  font-style: italic;
+  font-size: 1.1rem;
+}
+
+.couple-names {
+  margin: 20px 0;
+  font-size: 1.8rem;
+  color: #b30059;
+}
+
+.details p {
+  margin: 10px 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.details strong {
+  color: #b30059;
+}
+
+.quote {
+  font-style: italic;
+  font-size: 1.5rem;
+  color: #777;
+  margin: 2rem 0;
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.counter-box {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.counter-box p {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.counter-box span {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.contact-section {
+  margin: 2rem 0;
+}
+
+.contact-section h2 {
+  font-size: 1.8rem;
+  color: #e91e63;
+  margin-bottom: 0.5rem;
+}
+
+.music-controls button {
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #e91e63;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.music-controls button:hover {
+  background-color: #c2185b;
+}
+
+.volume-text {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.footer-text {
+  margin-top: 3rem;
+  font-size: 1rem;
+  color: #444;
 }

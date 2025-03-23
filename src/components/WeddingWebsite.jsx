@@ -1,13 +1,15 @@
-// src/components/WeddingWebsite.jsx
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { motion } from 'framer-motion';
 import './WeddingWebsite.css';
 
 const WeddingWebsite = () => {
-  const weddingDate = useMemo(() => new Date('2025-04-26T10:00:00'), []);
+  const weddingDate = new Date('2025-05-03T10:00:00');
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  const audioRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [volume, setVolume] = useState(0.1);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -25,46 +27,89 @@ const WeddingWebsite = () => {
     return () => clearInterval(timer);
   }, [weddingDate]);
 
-  useEffect(() => {
-    const audio = new Audio(`${process.env.PUBLIC_URL}/music/love.mp3`);
-    audio.loop = true;
-    audio.volume = 0.1;
+  const toggleAudio = () => {
+    if (isPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play().catch(() => alert('Click interaction is required to start the music!'));
+    }
+    setIsPlaying(!isPlaying);
+  };
 
-    const playAudio = () => {
-      audio.play().catch(() => console.warn('Autoplay failed. User interaction required.'));
-      document.removeEventListener('click', playAudio);
-    };
-
-    document.addEventListener('click', playAudio);
-    return () => document.removeEventListener('click', playAudio);
-  }, []);
+  const adjustVolume = (change) => {
+    let newVolume = Math.max(0, Math.min(1, audioRef.current.volume + change));
+    audioRef.current.volume = newVolume;
+    setVolume(newVolume);
+  };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-100 to-purple-200 flex flex-col items-center text-center relative">
-      <motion.h1 className="text-6xl font-fancy text-pink-600 mt-6" initial={{ opacity: 0, y: -50 }} animate={{ opacity: 1, y: 0 }}>Ada-Too</motion.h1>
-      <p className="text-lg text-gray-600 mt-2">Join us on April 26, 2025 (Mass: 10 AM)</p>
-      <Carousel autoPlay infiniteLoop showThumbs={false} className="mt-6 max-w-md">
+    <div className="wedding-container">
+      <motion.h1 className="fancy-title" initial={{ opacity: 0, y: -50 }} animate={{ opacity: 1, y: 0 }}>
+        Ada-Too
+      </motion.h1>
+
+      <p className="date-text">Saturday, May 3rd, 2025 | Mass: 10 AM</p>
+
+      <Carousel autoPlay infiniteLoop showThumbs={false} className="carousel">
         <div><img src={`${process.env.PUBLIC_URL}/images/couple1.jpg`} alt="Couple" /></div>
         <div><img src={`${process.env.PUBLIC_URL}/images/couple2.jpg`} alt="Together Forever" /></div>
       </Carousel>
-      <h2 className="text-2xl font-semibold text-pink-500 mt-8">Venue</h2>
-      <p className="text-gray-600">St. Mary's Catholic Church, Enugu</p>
-      <p className="text-gray-500">Reception: Royal Garden Event Center</p>
-      <blockquote className="italic text-lg text-gray-700 mt-6">“Two hearts, one journey. Forever and always.”</blockquote>
-      <div className="mt-8 grid grid-cols-4 gap-4">
+
+      <section className="wedding-invitation">
+        <h1>💍 Wedding Invitation</h1>
+        <p>✨ The families of</p>
+        <h2>Mr. & Mrs. Inegbu Peter Chukwuemeka</h2>
+        <p>of Umueze Isuofia, Aguata LGA, Anambra State</p>
+        <h2>&</h2>
+        <h2>Engr. & Mrs. Michael Bill Onu</h2>
+        <p>of Amenu Uburu, Ohaozara LGA, Ebonyi State</p>
+
+        <p className="invite-text">Cordially invite you to celebrate the wedding of their beloved children:</p>
+        <h2 className="couple-names">Inegbu Adaobi & Onu Toochukwu</h2>
+
+        <div className="details">
+          <p>📅 <strong>Date:</strong> Saturday, 3rd May, 2025</p>
+          <p>⏰ <strong>Time:</strong> Holy Mass – 10:00 AM</p>
+          <p>📍 <strong>Venue:</strong> St. Theresa Catholic Church, Umueze Isuofia</p>
+          <p>🎉 <strong>Reception:</strong> After Mass at Mr. Peter Inegbu's Compound</p>
+          <p>🎨 <strong>Colors:</strong> 
+  <span style={{ backgroundColor: 'black', color: 'white', padding: '4px 10px', borderRadius: '20px', margin: '0 5px', display: 'inline-block' }}>Black</span>
+  <span style={{ backgroundColor: 'white', color: 'black', padding: '4px 10px', borderRadius: '20px', margin: '0 5px', border: '1px solid #ccc', display: 'inline-block' }}>White</span>
+  <span style={{ backgroundColor: '#722f37', color: 'white', padding: '4px 10px', borderRadius: '20px', margin: '0 5px', display: 'inline-block' }}>Wine</span>
+  <span style={{ backgroundColor: 'red', color: 'white', padding: '4px 10px', borderRadius: '20px', margin: '0 5px', display: 'inline-block' }}>Red</span>
+  <span style={{ backgroundColor: 'goldenrod', color: 'white', padding: '4px 10px', borderRadius: '20px', margin: '0 5px', display: 'inline-block' }}>Gold</span>
+  <span style={{ backgroundColor: 'purple', color: 'white', padding: '4px 10px', borderRadius: '20px', margin: '0 5px', display: 'inline-block' }}>Onion</span>
+</p>
+
+        </div>
+      </section>
+
+      <blockquote className="quote">“Together we begin, forever we remain—two hearts, one soul.”</blockquote>
+
+      <div className="countdown-grid">
         {['Days', 'Hours', 'Minutes', 'Seconds'].map((label, index) => (
-          <div key={label} className="w-24 h-24 flex flex-col items-center justify-center bg-white rounded-lg shadow-md">
-            <p className="text-2xl font-bold">{Object.values(timeLeft)[index]}</p>
-            <p className="text-xs text-gray-500">{label}</p>
+          <div key={label} className="counter-box">
+            <p>{Object.values(timeLeft)[index]}</p>
+            <span>{label}</span>
           </div>
         ))}
       </div>
-      <div className="mt-8 space-y-2">
-        <h2 className="text-xl font-bold text-pink-500">Contact Us</h2>
-        <p className="text-gray-600">📞 Onu: +2349012345678</p>
-        <p className="text-gray-600">📞 Partner: +2349087654321</p>
+
+      <div className="contact-section">
+        <h2>Contact Us</h2>
+        <p>📞 Onu: +2349012345678</p>
+        <p>📞 Adaobi: +2349087654321</p>
       </div>
-      <footer className="mt-8 text-sm text-gray-500">Made with ❤️ by Onu & Partner</footer>
+
+      <div className="music-controls">
+        <button onClick={toggleAudio}>{isPlaying ? 'Pause Music' : 'Play Music'}</button>
+        <button onClick={() => adjustVolume(0.1)}>Volume +</button>
+        <button onClick={() => adjustVolume(-0.1)}>Volume -</button>
+        <p className="volume-text">Volume: {(volume * 100).toFixed(0)}%</p>
+        <audio ref={audioRef} src={`${process.env.PUBLIC_URL}/music/love.mp3`} loop />
+      </div>
+
+      <footer className="footer-text">Made with ❤️ by Onu & Adaobi</footer>
     </div>
   );
 };
