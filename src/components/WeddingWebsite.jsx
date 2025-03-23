@@ -65,7 +65,7 @@ const WeddingWebsite = () => {
       <p className="date-text">Saturday, May 3rd, 2025 | Mass: 10 AM</p>
 
       <Carousel autoPlay infiniteLoop showThumbs={false} className="carousel">
-        <div><img src={`${process.env.PUBLIC_URL}/images/couple1.jpg`} alt="Couple" /></div>
+        <div><img src={`${process.env.PUBLIC_URL}/images/adaToo1.jpg`} alt="Couple" /></div>
         <div><img src={`${process.env.PUBLIC_URL}/images/couple2.jpg`} alt="Together Forever" /></div>
       </Carousel>
 
@@ -86,18 +86,21 @@ const WeddingWebsite = () => {
           <p>⏰ <strong>Time:</strong> Holy Mass – 10:00 AM</p>
           <p>📍 <strong>Venue:</strong> St. Theresa Catholic Church, Umueze Isuofia</p>
           <p>🎉 <strong>Reception:</strong> After Mass at Mr. Peter Inegbu's Compound</p>
-          <p>🎨 <strong>Colors:</strong> 
-            <span style={{ backgroundColor: 'black', color: 'white', padding: '4px 10px', borderRadius: '20px', margin: '0 5px', display: 'inline-block' }}>Black</span>
-            <span style={{ backgroundColor: 'white', color: 'black', padding: '4px 10px', borderRadius: '20px', margin: '0 5px', border: '1px solid #ccc', display: 'inline-block' }}>White</span>
-            <span style={{ backgroundColor: '#722f37', color: 'white', padding: '4px 10px', borderRadius: '20px', margin: '0 5px', display: 'inline-block' }}>Wine</span>
-            <span style={{ backgroundColor: 'red', color: 'white', padding: '4px 10px', borderRadius: '20px', margin: '0 5px', display: 'inline-block' }}>Red</span>
-            <span style={{ backgroundColor: 'goldenrod', color: 'white', padding: '4px 10px', borderRadius: '20px', margin: '0 5px', display: 'inline-block' }}>Gold</span>
-            <span style={{ backgroundColor: 'purple', color: 'white', padding: '4px 10px', borderRadius: '20px', margin: '0 5px', display: 'inline-block' }}>Onion</span>
-          </p>
+          <p className="color-options">
+  <span className="color-span" style={{ backgroundColor: 'black', color: 'white' }}>Black</span>
+  <span className="color-span" style={{ backgroundColor: 'white', color: 'black', border: '1px solid #ccc' }}>White</span>
+  <span className="color-span" style={{ backgroundColor: '#722f37', color: 'white' }}>Wine</span>
+  <span className="color-span" style={{ backgroundColor: 'red', color: 'white' }}>Red</span>
+  <span className="color-span" style={{ backgroundColor: 'goldenrod', color: 'white' }}>Gold</span>
+  <span className="color-span" style={{ backgroundColor: 'purple', color: 'white' }}>Onion</span>
+</p>
+
+
         </div>
       </section>
 
-      <blockquote className="quote">“Together we begin, forever we remain—two hearts, one soul.”</blockquote>
+      <p className="quote-text">Together we begin, forever we remain—two hearts, one soul.</p>
+
 
       <div className="countdown-grid">
         {['Days', 'Hours', 'Minutes', 'Seconds'].map((label, index) => (
