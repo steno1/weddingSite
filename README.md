@@ -19,8 +19,14 @@ Installation
 
 
 git clone https://github.com/steno1/weddingSite.git
-cd weddingSite
+
+
+cd weddingCard/wedding-website
+
+
 npm install
+
+
 npm start
 
 
