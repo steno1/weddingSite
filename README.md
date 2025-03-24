@@ -15,7 +15,7 @@ Features
 
 💻 Fully responsive design
 
-Installation
+✨Installation
 
 
 git clone https://github.com/steno1/weddingSite.git
@@ -30,12 +30,12 @@ npm install
 npm start
 
 
-Technologies Used
+✨Technologies Used
 
 React
 
 CSS3
 
-License
+✨License
 
 This project is open source.
