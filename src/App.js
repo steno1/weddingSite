@@ -1,8 +1,10 @@
 // src/App.js
 import React from 'react';
 import './App.css';
-import './index.css'; // Tailwind styles
-import WeddingWebsite from './components/WeddingWebsite';
+import './index.css'; 
+import WeddingWebsite from './WeddingWebsite';
+import './WeddingWebsite.css';
+
 
 function App() {
   return (
