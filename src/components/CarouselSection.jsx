@@ -9,10 +9,34 @@ const CarouselSection = () => (
         src={`${process.env.PUBLIC_URL}/images/adaToo1.jpg`}
         alt="Couple"
         style={{
-          width: '100%',
-          height: '100vh',
-          objectFit: 'cover',
-          objectPosition: 'center',
+          width: '100%',  
+          maxHeight: '80vh', 
+          objectFit: 'cover', 
+         
+        }}
+      />
+    </div>
+    <div>
+      <img
+        src={`${process.env.PUBLIC_URL}/images/princeleyPic1.jpeg`}
+        alt="Couple"
+        style={{
+          width: '100%',  
+          maxHeight: '80vh', 
+          objectFit: 'cover', 
+          objectPosition: 'top', 
+        }}
+      />
+    </div>
+    <div>
+      <img
+        src={`${process.env.PUBLIC_URL}/images/princeleyPics2.jpeg`}
+        alt="Couple"
+        style={{
+          width: '100%',  
+          maxHeight: '80vh', 
+          objectFit: 'cover', 
+          objectPosition: 'top', 
         }}
       />
     </div>
