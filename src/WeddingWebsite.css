@@ -246,6 +246,10 @@ body {
   color: #a52a2a;
 }
 
+.carousel-section {
+  overflow: hidden;
+  height: 100vh; /* Makes sure it fits one screen height */
+}
 
 
 .carousel img {
@@ -280,12 +284,17 @@ body {
   100% { transform: scale(1); opacity: 0.7; }
 }
 
+.carousel .slider-wrapper {
+  touch-action: pan-y !important;
+}
+
 .carousel .slide {
-  touch-action: pan-y; /* Allow vertical scroll on touch devices */
+  touch-action: pan-y !important;
 }
 
 .carousel .slide img {
-  pointer-events: none; /* Prevent images from blocking scroll */
+  pointer-events: none !important;
+  user-select: none;
 }
 
 @media (max-width: 768px) {

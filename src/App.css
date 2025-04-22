@@ -36,11 +36,3 @@
     transform: rotate(360deg);
   }
 }
-.carousel .slider-wrapper {
-  touch-action: pan-y; /* ✅ allow vertical scroll */
-}
-
-.carousel .slide img {
-  pointer-events: none; /* ✅ prevent image from hijacking touch */
-  user-select: none;
-}
