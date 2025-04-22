@@ -3,16 +3,17 @@ import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const CarouselSection = () => (
-  <Carousel autoPlay infiniteLoop showThumbs={false} className="carousel">
+  <Carousel autoPlay infiniteLoop showThumbs={false} showStatus={false}>
     <div>
       <img
         src={`${process.env.PUBLIC_URL}/images/adaToo1.jpg`}
         alt="Couple"
         style={{
-          width: '100%',  
-          maxHeight: '80vh', 
-          objectFit: 'cover', 
-         
+          width: '100%',
+          height: '100vh',
+          objectFit: 'cover',
+          objectPosition: 'center',
+          borderRadius: '10px',
         }}
       />
     </div>
@@ -21,10 +22,11 @@ const CarouselSection = () => (
         src={`${process.env.PUBLIC_URL}/images/princeleyPic1.jpeg`}
         alt="Couple"
         style={{
-          width: '100%',  
-          maxHeight: '80vh', 
-          objectFit: 'cover', 
-          objectPosition: 'top', 
+          width: '100%',
+          height: '100vh',
+          objectFit: 'cover',
+          objectPosition: 'top',
+          borderRadius: '10px',
         }}
       />
     </div>
@@ -33,10 +35,11 @@ const CarouselSection = () => (
         src={`${process.env.PUBLIC_URL}/images/princeleyPics2.jpeg`}
         alt="Couple"
         style={{
-          width: '100%',  
-          maxHeight: '80vh', 
-          objectFit: 'cover', 
-          objectPosition: 'top', 
+          width: '100%',
+          height: '100vh',
+          objectFit: 'cover',
+          objectPosition: 'top',
+          borderRadius: '10px',
         }}
       />
     </div>
