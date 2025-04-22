@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@400;600&family=Playfair+Display&display=swap');
 
 body {
   margin: 0;
@@ -34,13 +35,17 @@ body {
 }
 .contact-section h2 {
   font-family: 'Playfair Display', serif;
-  color: #d44d90;
+  
   margin-bottom: 1rem;
   text-align: center;
   width: 100%;
   display: inline-block; 
   position: relative;
   padding-bottom: 5px;
+
+  font-size: 1.8rem;
+  color: #e91e63;
+  
 }
 
 .contact-section h2::after {
@@ -275,6 +280,13 @@ body {
   100% { transform: scale(1); opacity: 0.7; }
 }
 
+.carousel .slide {
+  touch-action: pan-y; /* Allow vertical scroll on touch devices */
+}
+
+.carousel .slide img {
+  pointer-events: none; /* Prevent images from blocking scroll */
+}
 
 @media (max-width: 768px) {
   .color-options {
