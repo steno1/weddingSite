@@ -11,7 +11,7 @@ const CarouselSection = () => (
     swipeable={true}
     emulateTouch={true}
     renderIndicator={() => null}
-    style={{ touchAction: 'pan-y' }} // 👈 This is the key fix!
+   
   >
     <div>
       <img
