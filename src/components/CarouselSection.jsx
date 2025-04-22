@@ -3,7 +3,16 @@ import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const CarouselSection = () => (
-  <Carousel autoPlay infiniteLoop showThumbs={false} showStatus={false}>
+  <Carousel
+    autoPlay
+    infiniteLoop
+    showThumbs={false}
+    showStatus={false}
+    swipeable={true}
+    emulateTouch={true}
+    renderIndicator={() => null}
+    style={{ touchAction: 'pan-y' }} // 👈 This is the key fix!
+  >
     <div>
       <img
         src={`${process.env.PUBLIC_URL}/images/adaToo1.jpg`}
@@ -14,6 +23,7 @@ const CarouselSection = () => (
           objectFit: 'cover',
           objectPosition: 'center',
           borderRadius: '10px',
+          pointerEvents: 'none' // 👈 Prevents image from blocking the scroll
         }}
       />
     </div>
@@ -27,6 +37,7 @@ const CarouselSection = () => (
           objectFit: 'cover',
           objectPosition: 'top',
           borderRadius: '10px',
+          pointerEvents: 'none'
         }}
       />
     </div>
@@ -40,6 +51,7 @@ const CarouselSection = () => (
           objectFit: 'cover',
           objectPosition: 'top',
           borderRadius: '10px',
+          pointerEvents: 'none'
         }}
       />
     </div>
